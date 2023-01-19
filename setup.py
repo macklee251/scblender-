@@ -1,14 +1,33 @@
-# Import required functions
 from setuptools import setup, find_packages
+import codecs
+import os
 
-# pip install -e .           ---->        to install the package
+here = os.path.abspath(os.path.dirname(__file__))
 
-# Call setup function
+with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
+    long_description = "\n" + fh.read()
+
+VERSION = '0.0.1'
+DESCRIPTION = 'its purpose is to help and facilitate the commands'
+
+# Setting up
 setup(
-    author="Allison Eduardo",
-    description="Blender Script",
     name="scblender",
-    version="0.1.0",
-    packages=find_packages(include=["ps", "ps.*"]),
-    install_requires=["pandas", "scipy", "pysqlite3"],
+    version=VERSION,
+    author="Mack Hughes (Allison Eduardo)",
+    author_email="<mackhughes251@gmail.com",
+    description=DESCRIPTION,
+    long_description_content_type="text/markdown",
+    long_description=long_description,
+    packages=find_packages(),
+    install_requires=[],
+    keywords=['python', 'video', 'stream', 'video stream', 'camera stream', 'sockets'],
+    classifiers=[
+        "Development Status :: 1 - Planning",
+        "Intended Audience :: Developers",
+        "Programming Language :: Python :: 3",
+        "Operating System :: Unix",
+        "Operating System :: MacOS :: MacOS X",
+        "Operating System :: Microsoft :: Windows",
+    ]
 )
