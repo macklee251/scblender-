@@ -173,9 +173,7 @@ if __name__ == "__main__":
     
     
     
-    #mesh.set_vertices((0,1,2), ((0,0,0), (1,0,0), (2,0,0)))
-    
-    mesh.set_vertices({0:(0,0,0), 1:(1,0,0), 2:(2,0,0)})
+    mesh.set_vertices((0,1,2), ((0,0,0), (1,0,0), (2,0,0)))
     
     set_keyframe_vertices("mesh", 0, 10)
     set_keyframe_vertices("mesh", 1, 10)

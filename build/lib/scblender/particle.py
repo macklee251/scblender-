@@ -78,21 +78,19 @@ class Particle:
         bpy.data.objects[self._name].select_set(True)
         bpy.context.view_layer.objects.active = bpy.data.objects[self._name]
         return [v.co for v in bpy.context.active_object.data.vertices]
-    
 
-    def set_vertices(self, new_coordinate: dict) -> None:
+    def set_vertices(self, vertice_id: int, new_coordinate: list) -> None:
         if bpy.context.active_object.mode == "EDIT":
             bpy.ops.object.editmode_toggle()
         bpy.ops.object.select_all(action="DESELECT")
         bpy.data.objects[self._name].select_set(True)
-        for vertice_id in new_coordinate.keys(): 
-            bpy.context.active_object.data.vertices[vertice_id].co = new_coordinate[vertice_id]
+        bpy.context.active_object.data.vertices[vertice_id].co = new_coordinate
         return None
 
     @staticmethod
     def _checking_the_type_and_the_dimensionality(greatness) -> bool:
-        """ This function check if the things that being passed 
-        to the methods of position, rotation and scale
+        """ This function check if the things that are being pass 
+        for the methods involving position, rotation and scale
         are an array of dimension three  
 
         Args:
